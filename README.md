@@ -1,4 +1,6 @@
 Notepad 10k
+================
+
 Author: Ian P (ippavlin)
 
 Notepad 10k is a "Notepad" clone written in Visual Basic .NET. The
