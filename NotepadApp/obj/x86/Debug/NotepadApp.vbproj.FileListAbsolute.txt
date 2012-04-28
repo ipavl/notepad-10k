@@ -1,0 +1,33 @@
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\bin\Debug\NotepadApp.exe
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\bin\Debug\NotepadApp.pdb
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\bin\Debug\NotepadApp.xml
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\obj\x86\Debug\NotepadApp.NotepadApp.resources
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\obj\x86\Debug\NotepadApp.Resources.resources
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\obj\x86\Debug\NotepadApp.exe
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\obj\x86\Debug\NotepadApp.xml
+C:\Users\Ian\AppData\Local\Temporary Projects\NotepadApp\obj\x86\Debug\NotepadApp.pdb
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.exe
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.xml
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.pdb
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\bin\Debug\NotepadApp.exe
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\bin\Debug\NotepadApp.pdb
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\bin\Debug\NotepadApp.xml
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.NotepadApp.resources
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.Resources.resources
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Ian\documents\visual studio 2010\Projects\NotepadApp\NotepadApp\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.exe
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.xml
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.pdb
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\bin\Debug\NotepadApp.exe
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\bin\Debug\NotepadApp.pdb
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\bin\Debug\NotepadApp.xml
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.NotepadApp.resources
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.Resources.resources
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\GenerateResource.write.1.tlog
