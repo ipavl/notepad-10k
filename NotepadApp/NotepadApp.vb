@@ -1,9 +1,13 @@
-﻿'*********************************'
-'  Notepad 10k - a Notepad Clone  '
-'          Author: Ian P          '
-'  Description: A notepad clone.  '
-'        Date: August 2011        '
-'*********************************'
+﻿'*************************************************************************************
+'  Notepad 10k - a Notepad Clone
+'  Author: Ian P (ipavl)
+'  Description: A notepad clone with support to switch between multiple languages.
+'
+'  Date: August 2011
+'  Last updated: July 30th, 2013
+'
+'  https://www.github.com/ipavl/notepad-10k
+'*************************************************************************************
 
 'Imports are things that we get from the .NET framework. By importing the packages we need, we will use less code
 'later on if we use something repeatedly. For example, by importing System.Drawing.Printing, we can just use the code
@@ -45,10 +49,12 @@ Public Class NotepadApp
 
     Private Sub LoadLanguage(lang As String)
         Try
+            ' If the selected choice is something other than "Default", we need to load a language file.
             If lang <> "Default" Then
                 Dim allLines() As String = File.ReadAllLines(Application.StartupPath + "\language\" + lang + ".lang")
                 Dim i As Integer
 
+                ' Add the phrases to the array list
                 For Each line As String In allLines
                     LabelText(i) = line
                     i = i + 1
@@ -57,6 +63,7 @@ Public Class NotepadApp
                 LoadDefaultLanguage()
             End If
 
+            ' This function will update all the program's labels with the new data.
             UpdateLanguage()
         Catch Ex As Exception
             Debug.Print(Ex.ToString)
@@ -226,7 +233,7 @@ Public Class NotepadApp
                 CurrentPath = OpenWindow.FileName
                 'Set the titlebar text
                 SetTitleText()
-                'We need to toggle the FileHasBeenSaved variable to true since been saved previously.
+                'We need to toggle the FileHasBeenSaved variable to true since the file has been saved previously.
                 FileHasBeenSaved = True
             End If
         Catch ex As Exception
@@ -470,7 +477,7 @@ Public Class NotepadApp
 
         'Help menu
         LabelText(20) = "&Help"
-        LabelText(21) = "&About"
+        LabelText(21) = "About"
 
         'Miscellaneous messages
         LabelText(22) = "Error"
