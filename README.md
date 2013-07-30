@@ -17,6 +17,10 @@ The included languages are:
 * Finnish
 * Japanese
 
+Additional languages can be added by adding files to the "language"
+directory in the same style as the sample ones. The program will
+automatically load them on launch.
+
 The source-code of the program is approximately 10kb without any
 commented lines, prior to adding switching languages on the fly
 support.
