@@ -1,11 +1,25 @@
 Notepad 10k
 ================
 
-Author: Ian P (ippavlin)
+Author: Ian P (ipavl)
 
-Notepad 10k is a "Notepad" clone written in Visual Basic .NET. The
-source-code of the program is approximately 10kb without any commented
-lines.
+Notepad 10k is a "Notepad" clone written in Visual Basic .NET. It
+supports languages to be changed "on the fly" as of July 30th, 2013.
+Sample languages are included in the source code for demonstration
+purposes, though they may not be perfect as they were created using
+Google Translate.
+
+The included languages are:
+
+* English
+* French
+* Spanish
+* Finnish
+* Japanese
+
+The source-code of the program is approximately 10kb without any
+commented lines, prior to adding switching languages on the fly
+support.
 
 LICENSE
 
