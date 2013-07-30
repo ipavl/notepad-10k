@@ -31,3 +31,13 @@ C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\Notep
 C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\NotepadApp.Resources.resources
 C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Ian\Documents\Visual Studio 2010\Projects\Visual Basic\NotepadApp\NotepadApp\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\obj\x86\Debug\NotepadApp.NotepadApp.resources
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\obj\x86\Debug\NotepadApp.Resources.resources
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\obj\x86\Debug\NotepadApp.vbproj.GenerateResource.Cache
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\bin\Debug\Notepad-10k.exe.config
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\bin\Debug\Notepad-10k.exe
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\bin\Debug\Notepad-10k.pdb
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\bin\Debug\Notepad-10k.xml
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\obj\x86\Debug\Notepad-10k.exe
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\obj\x86\Debug\Notepad-10k.xml
+C:\Users\Ian\workspace\notepad-10k\NotepadApp\obj\x86\Debug\Notepad-10k.pdb

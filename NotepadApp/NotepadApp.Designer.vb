@@ -47,6 +47,8 @@ Partial Class NotepadApp
         Me.OptionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WordWrapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FontSettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.LanguageSelector = New System.Windows.Forms.ToolStripComboBox()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtNotepad = New System.Windows.Forms.TextBox()
@@ -200,7 +202,7 @@ Partial Class NotepadApp
         '
         'OptionsToolStripMenuItem
         '
-        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.WordWrapToolStripMenuItem, Me.FontSettingsToolStripMenuItem})
+        Me.OptionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.WordWrapToolStripMenuItem, Me.FontSettingsToolStripMenuItem, Me.ToolStripSeparator1, Me.LanguageSelector})
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
         Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.OptionsToolStripMenuItem.Text = "&Options"
@@ -208,14 +210,25 @@ Partial Class NotepadApp
         'WordWrapToolStripMenuItem
         '
         Me.WordWrapToolStripMenuItem.Name = "WordWrapToolStripMenuItem"
-        Me.WordWrapToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.WordWrapToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.WordWrapToolStripMenuItem.Text = "&Word Wrap"
         '
         'FontSettingsToolStripMenuItem
         '
         Me.FontSettingsToolStripMenuItem.Name = "FontSettingsToolStripMenuItem"
-        Me.FontSettingsToolStripMenuItem.Size = New System.Drawing.Size(143, 22)
+        Me.FontSettingsToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.FontSettingsToolStripMenuItem.Text = "&Font Settings"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(178, 6)
+        '
+        'LanguageSelector
+        '
+        Me.LanguageSelector.Name = "LanguageSelector"
+        Me.LanguageSelector.Size = New System.Drawing.Size(121, 23)
+        Me.LanguageSelector.Text = "Default"
         '
         'HelpToolStripMenuItem
         '
@@ -285,5 +298,7 @@ Partial Class NotepadApp
     Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TimeDayToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripMenuItem4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents LanguageSelector As System.Windows.Forms.ToolStripComboBox
 
 End Class

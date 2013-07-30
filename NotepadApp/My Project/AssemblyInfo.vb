@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("NotepadApp")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("Microsoft")> 
-<Assembly: AssemblyProduct("NotepadApp")> 
-<Assembly: AssemblyCopyright("Copyright © Microsoft 2011")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTitle("Notepad 10k")> 
+<Assembly: AssemblyDescription("A Notepad-clone that supports multiple languages.")> 
+<Assembly: AssemblyCompany("ipavl - github.com/ipavl")> 
+<Assembly: AssemblyProduct("Notepad 10k")> 
+<Assembly: AssemblyCopyright("Copyright © ipavl 2011-2013")> 
+<Assembly: AssemblyTrademark("ipavl")> 
 
 <Assembly: ComVisible(False)>
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.0.0.0")> 
-<Assembly: AssemblyFileVersion("1.0.0.0")> 
+<Assembly: AssemblyVersion("1.7.0.0")> 
+<Assembly: AssemblyFileVersion("1.7.0.0")> 

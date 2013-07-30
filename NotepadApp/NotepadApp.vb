@@ -34,13 +34,41 @@ Public Class NotepadApp
 
     Private FileHasBeenSaved As Boolean
 
-    Private Function SetTitleText()
+    'Language variables
+    Private LabelText As New ArrayList  ' To store all the text data for languages
+    Private LabelErrorTitle As String
+    Private LabelClosingNotice As String
+    Private LabelClosingNoticeTitle As String
+    Private LabelNewFileNotice As String
+    Private LabelNewFileNoticeTitle As String
+    Private LabelAboutText As String
+
+    Private Sub LoadLanguage(lang As String)
+        Try
+            If lang <> "Default" Then
+                Dim allLines() As String = File.ReadAllLines(Application.StartupPath + "\language\" + lang + ".lang")
+                Dim i As Integer
+
+                For Each line As String In allLines
+                    LabelText(i) = line
+                    i = i + 1
+                Next
+            Else
+                LoadDefaultLanguage()
+            End If
+
+            UpdateLanguage()
+        Catch Ex As Exception
+            Debug.Print(Ex.ToString)
+        End Try
+    End Sub
+
+    Private Sub SetTitleText()
         'Set the title text of the app to 
         TitleText = CurrentFile & " - Notepad 10k"
         'Finally set the title text.
         Me.Text = TitleText
-        Return True 'This gets rid of a warning.
-    End Function
+    End Sub
 
     Private Function SaveAs()
         'A function is used when you need to return a value such as Sum(2 + 3) or need to call a piece of code more than once.
@@ -71,7 +99,7 @@ Public Class NotepadApp
                 FileHasBeenSaved = True
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error")
+            MessageBox.Show(ex.Message, LabelText(22))
         End Try
         Return Nothing
     End Function
@@ -93,14 +121,34 @@ Public Class NotepadApp
         'We need to keep track of if the file has been saved so we can later tell the save option if it should just save over
         'the previous file or if it needs to save the text to a file. We can use a Boolean (true/false statement) for this.
         FileHasBeenSaved = False
+
+        'Initialize language list
+        For i As Integer = 0 To 30
+            LabelText.Add(i)
+        Next
+
+        'Load all language files from the "language" directory.
+        Try
+            Dim dirInfo As New DirectoryInfo(Application.StartupPath + "\language")
+            Dim fileList As FileInfo() = dirInfo.GetFiles()
+            Dim file As FileInfo
+
+            'List the names of all files in the "language" directory without the .lang extension.
+            For Each file In fileList
+                LanguageSelector.Items.Add(Path.GetFileNameWithoutExtension(file.ToString))
+            Next
+        Catch ex As Exception
+            Debug.Print(ex.ToString)
+        End Try
+
+        'Load default language data
+        LoadDefaultLanguage()
+        UpdateLanguage()
     End Sub
 
     Private Sub NotepadApp_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         'This will ask the user if they are sure they want to close the application. This is called when they click the "X" button.
-        e.Cancel = MessageBox.Show("You may have made changes to the file " & CurrentFile & ". Please " & _
-                                                    "make sure you have saved the file. Click 'Yes' if you HAVE saved the " & _
-                                                    "file and would like to exit. Otherwise, click 'No' and go back and save the file " & _
-                                                    "or continue working on it.", "Really exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) <> Windows.Forms.DialogResult.Yes
+        e.Cancel = MessageBox.Show(LabelText(23), LabelText(24), MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) <> Windows.Forms.DialogResult.Yes
     End Sub
 
     Private Sub WordWrapToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles WordWrapToolStripMenuItem.Click
@@ -126,7 +174,7 @@ Public Class NotepadApp
             'We want to use a 'Try' statement to handle errors here in case the user selects a font combination that would
             'normally cause an error and cause the program to hang. Instead, we tell the user that there has been an error
             'and tell them what it is. A common error in this program would be TrueType fonts.
-            MessageBox.Show(ex.Message, "Error")
+            MessageBox.Show(ex.Message, LabelText(22))
         End Try
 
     End Sub
@@ -143,10 +191,7 @@ Public Class NotepadApp
 
         'We are using Dim here instead of putting it as a variable at the top of the class because it is only need here and
         'we want its messagebox to show something specific. It can be re-declared elsewhere if needed.
-        Dim reply As DialogResult = MessageBox.Show("You may have made changes to the file " & CurrentFile & ". Please " & _
-                                                    "make sure you have saved the file. Click 'Yes' if you HAVE saved the " & _
-                                                    "file and would like to exit. Otherwise, click 'No' and go back and save the file " & _
-                                                    "or continue working on it.", "Really exit?", _
+        Dim reply As DialogResult = MessageBox.Show(LabelText(23), LabelText(24), _
               MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
 
         If reply = DialogResult.Yes Then
@@ -185,7 +230,7 @@ Public Class NotepadApp
                 FileHasBeenSaved = True
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error")
+            MessageBox.Show(ex.Message, LabelText(22))
         End Try
 
     End Sub
@@ -231,7 +276,7 @@ Public Class NotepadApp
                 'education purposes and is not required to prevent the program from crashing; it will just skip it.
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error")
+            MessageBox.Show(ex.Message, LabelText(22))
         End Try
     End Sub
 
@@ -282,7 +327,7 @@ Public Class NotepadApp
                 SaveAs()
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error")
+            MessageBox.Show(ex.Message, LabelText(22))
         End Try
     End Sub
 
@@ -295,8 +340,7 @@ Public Class NotepadApp
 
         'We are using Dim here instead of putting it as a variable at the top of the class because it is only need here and
         'we want its messagebox to show something specific. It can be re-declared elsewhere if needed.
-        Dim reply As DialogResult = MessageBox.Show("Do you really want to start a new document? Any unsaved changes will " & _
-                                                    "be lost!", "Create new document?", _
+        Dim reply As DialogResult = MessageBox.Show(LabelText(25), LabelText(26), _
               MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1)
 
         If reply = DialogResult.Yes Then
@@ -329,7 +373,7 @@ Public Class NotepadApp
                 'education purposes and is not required to prevent the program from crashing; it will just skip it.
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error")
+            MessageBox.Show(ex.Message, LabelText(22))
         End Try
     End Sub
 
@@ -346,6 +390,97 @@ Public Class NotepadApp
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AboutToolStripMenuItem.Click
-        MessageBox.Show("Created by ippavlin. The source code of this program is about 10KB without comments, or 21KB with them. It was created from August 6th-9th, 2011.", "About Notepad 10k", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show(LabelText(27) + vbNewLine + vbNewLine + "https://www.github.com/ipavl/notepad-10k" + " (v1.7-20130730)", LabelText(21), MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub LanguageSelector_TextChanged(sender As Object, e As EventArgs) Handles LanguageSelector.TextChanged
+        'Load the new language when the user changes the program's language.
+        LoadLanguage(LanguageSelector.Text)
+        Debug.Print("Switching language: " + LanguageSelector.Text)
+    End Sub
+
+    Private Sub UpdateLanguage()
+        'Update all of the labels and dialog in the program with the new language data
+
+        'File menu
+        FileToolStripMenuItem.Text = LabelText(0)
+        NewToolStripMenuItem.Text = LabelText(1)
+        OpenToolStripMenuItem.Text = LabelText(2)
+        SaveToolStripMenuItem.Text = LabelText(3)
+        SaveAsToolStripMenuItem.Text = LabelText(4)
+        PrintToolStripMenuItem.Text = LabelText(5)
+        PageSetupToolStripMenuItem.Text = LabelText(6)
+        PrintPreviewToolStripMenuItem.Text = LabelText(7)
+        ExitToolStripMenuItem.Text = LabelText(8)
+
+        'Edit menu
+        EditToolStripMenuItem.Text = LabelText(9)
+        UndoToolStripMenuItem.Text = LabelText(10)
+        CutToolStripMenuItem.Text = LabelText(11)
+        CopyToolStripMenuItem.Text = LabelText(12)
+        PasteToolStripMenuItem.Text = LabelText(13)
+        DeleteToolStripMenuItem.Text = LabelText(14)
+        SelectAllToolStripMenuItem.Text = LabelText(15)
+        TimeDayToolStripMenuItem.Text = LabelText(16)
+
+        'Options menu
+        OptionsToolStripMenuItem.Text = LabelText(17)
+        WordWrapToolStripMenuItem.Text = LabelText(18)
+        FontSettingsToolStripMenuItem.Text = LabelText(19)
+
+        'Help menu
+        HelpToolStripMenuItem.Text = LabelText(20)
+        AboutToolStripMenuItem.Text = LabelText(21)
+
+        'Miscellaneous messages
+        LabelErrorTitle = LabelText(22)
+        LabelClosingNotice = LabelText(23)
+        LabelClosingNoticeTitle = LabelText(24)
+        LabelNewFileNotice = LabelText(25)
+        LabelNewFileNoticeTitle = LabelText(26)
+        LabelAboutText = LabelText(27)
+    End Sub
+
+    Private Sub LoadDefaultLanguage()
+        'File menu
+        LabelText(0) = "&File"
+        LabelText(1) = "&Edit"
+        LabelText(2) = "&Open"
+        LabelText(3) = "&Save"
+        LabelText(4) = "Save &As"
+        LabelText(5) = "&Print"
+        LabelText(6) = "Pa&ge Setup"
+        LabelText(7) = "P&rint Preview"
+        LabelText(8) = "E&xit"
+
+        'Edit menu
+        LabelText(9) = "&Edit"
+        LabelText(10) = "&Undo"
+        LabelText(11) = "Cu&t"
+        LabelText(12) = "&Copy"
+        LabelText(13) = "&Paste"
+        LabelText(14) = "De&lete"
+        LabelText(15) = "Select &All"
+        LabelText(16) = "Time/&Date"
+
+        'Options menu
+        LabelText(17) = "Op&tions"
+        LabelText(18) = "&Word Wrap"
+        LabelText(19) = "&Font Settings"
+
+        'Help menu
+        LabelText(20) = "&Help"
+        LabelText(21) = "&About"
+
+        'Miscellaneous messages
+        LabelText(22) = "Error"
+        LabelText(23) = "You may have made changes to the current file. Please " & _
+                                                    "make sure you have saved the file. Click 'Yes' if you HAVE saved the " & _
+                                                    "file and would like to exit. Otherwise, click 'No' and go back and save the file " & _
+                                                    "or continue working on it."
+        LabelText(24) = "Really exit?"
+        LabelText(25) = "Do you really want to start a new document? Any unsaved changes will be lost!"
+        LabelText(26) = "Create new document?"
+        LabelText(27) = "Created by ipavl. The source code of this program is about 10KB without comments, or 21KB with them. It was originally created from August 6th-9th, 2011. Multiple languages support added July 30th, 2013."
     End Sub
 End Class
