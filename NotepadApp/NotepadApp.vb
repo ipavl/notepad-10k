@@ -1,13 +1,22 @@
-﻿'*************************************************************************************
-'  Notepad 10k - a Notepad Clone
-'  Author: Ian P (ipavl)
-'  Description: A notepad clone with support to switch between multiple languages.
+﻿'//////////////////////////////////////////////////////////////////////////////////////////////////
 '
-'  Date: August 2011
-'  Last updated: July 30th, 2013
+'  Notepad 10k is a Notepad-clone with support to change the application's langauge on the fly.
+'    Copyright (C) 2011-2013  ipavl <https://www.github.com/ipavl/notepad-10k>
+
+'    This program is free software: you can redistribute it and/or modify
+'    it under the terms of the GNU General Public License as published by
+'    the Free Software Foundation, either version 3 of the License, or
+'    (at your option) any later version.
 '
-'  https://www.github.com/ipavl/notepad-10k
-'*************************************************************************************
+'    This program is distributed in the hope that it will be useful,
+'    but WITHOUT ANY WARRANTY; without even the implied warranty of
+'    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+'    GNU General Public License for more details.
+'
+'    You should have received a copy of the GNU General Public License
+'    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'
+'//////////////////////////////////////////////////////////////////////////////////////////////////
 
 'Imports are things that we get from the .NET framework. By importing the packages we need, we will use less code
 'later on if we use something repeatedly. For example, by importing System.Drawing.Printing, we can just use the code
