@@ -16,6 +16,12 @@ The included languages are:
 * Spanish
 * Finnish
 * Japanese
+* Polish
+* Swedish
+* Russian
+* Korean
+* Chinese (Simplified)
+* Chinese (Traditional)
 
 Additional languages can be added by adding files to the "language"
 directory in the same style as the sample ones. The program will
