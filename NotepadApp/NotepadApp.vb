@@ -397,7 +397,7 @@ Public Class NotepadApp
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AboutToolStripMenuItem.Click
-        MessageBox.Show(LabelText(27) + vbNewLine + vbNewLine + "https://www.github.com/ipavl/notepad-10k" + " (v1.7-20130730)", LabelText(21), MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show(LabelText(27) + vbNewLine + vbNewLine + "https://www.github.com/ipavl/notepad-10k" + " (v1.7.2-20130731)", LabelText(21), MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub LanguageSelector_TextChanged(sender As Object, e As EventArgs) Handles LanguageSelector.TextChanged
