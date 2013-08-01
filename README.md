@@ -19,7 +19,8 @@ The included languages are:
 
 Additional languages can be added by adding files to the "language"
 directory in the same style as the sample ones. The program will
-automatically load them on launch.
+automatically load them on launch (or you can manually enter the file
+name if you add the language file after launch and it will work).
 
 The source-code of the program is approximately 10kb without any
 commented lines, prior to adding switching languages on the fly

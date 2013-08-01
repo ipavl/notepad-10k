@@ -125,6 +125,9 @@ Public Class NotepadApp
         'Call the function that sets the program's title text. The word 'Call' is optional.
         Call SetTitleText()
 
+        'Allow the use of the tab key in the textbox.
+        txtNotepad.AcceptsTab = True
+
         'We need to keep track of if the file has been saved so we can later tell the save option if it should just save over
         'the previous file or if it needs to save the text to a file. We can use a Boolean (true/false statement) for this.
         FileHasBeenSaved = False
