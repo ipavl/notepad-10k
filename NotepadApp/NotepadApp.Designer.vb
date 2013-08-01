@@ -52,7 +52,12 @@ Partial Class NotepadApp
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtNotepad = New System.Windows.Forms.TextBox()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.lblStatus = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.lblLength = New System.Windows.Forms.ToolStripStatusLabel()
         Me.Toolbar.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Toolbar
@@ -209,6 +214,8 @@ Partial Class NotepadApp
         '
         'WordWrapToolStripMenuItem
         '
+        Me.WordWrapToolStripMenuItem.Checked = True
+        Me.WordWrapToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked
         Me.WordWrapToolStripMenuItem.Name = "WordWrapToolStripMenuItem"
         Me.WordWrapToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
         Me.WordWrapToolStripMenuItem.Text = "&Word Wrap"
@@ -250,11 +257,39 @@ Partial Class NotepadApp
         Me.txtNotepad.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtNotepad.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNotepad.Location = New System.Drawing.Point(0, 24)
+        Me.txtNotepad.MaxLength = 0
         Me.txtNotepad.Multiline = True
         Me.txtNotepad.Name = "txtNotepad"
         Me.txtNotepad.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtNotepad.Size = New System.Drawing.Size(683, 362)
+        Me.txtNotepad.Size = New System.Drawing.Size(683, 340)
         Me.txtNotepad.TabIndex = 1
+        '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.lblStatus, Me.ToolStripStatusLabel1, Me.lblLength})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 364)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(683, 22)
+        Me.StatusStrip1.TabIndex = 2
+        Me.StatusStrip1.Text = "StatusBar"
+        '
+        'lblStatus
+        '
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(144, 17)
+        Me.lblStatus.Text = "Welcome to Notepad 10k."
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(22, 17)
+        Me.ToolStripStatusLabel1.Text = "  |  "
+        '
+        'lblLength
+        '
+        Me.lblLength.Name = "lblLength"
+        Me.lblLength.Size = New System.Drawing.Size(13, 17)
+        Me.lblLength.Text = "0"
         '
         'NotepadApp
         '
@@ -263,12 +298,15 @@ Partial Class NotepadApp
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(683, 386)
         Me.Controls.Add(Me.txtNotepad)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.Toolbar)
         Me.MainMenuStrip = Me.Toolbar
         Me.Name = "NotepadApp"
         Me.Text = "vbNotepad"
         Me.Toolbar.ResumeLayout(False)
         Me.Toolbar.PerformLayout()
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -303,5 +341,9 @@ Partial Class NotepadApp
     Friend WithEvents ToolStripMenuItem4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents LanguageSelector As System.Windows.Forms.ToolStripComboBox
+    Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
+    Friend WithEvents lblStatus As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents lblLength As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
 
 End Class

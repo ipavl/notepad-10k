@@ -2,7 +2,7 @@
 '
 '  Notepad 10k is a Notepad-clone with support to change the application's langauge on the fly.
 '    Copyright (C) 2011-2013  ipavl <https://www.github.com/ipavl/notepad-10k>
-
+'
 '    This program is free software: you can redistribute it and/or modify
 '    it under the terms of the GNU General Public License as published by
 '    the Free Software Foundation, either version 3 of the License, or
@@ -41,11 +41,14 @@ Public Class NotepadApp
     Private PageSetupWindow As New PageSetupDialog
     Private PrintPreviewWindow As New PrintPreviewDialog
 
+    Private Const AppVersion As String = "v1.7.4-20130801"
+
     Private TitleText As String
     Private CurrentFile, CurrentPath As String
     Private UndoState, RedoState As String
 
     Private FileHasBeenSaved As Boolean
+    Private FileLastSaved As String
 
     'Language variables
     Private LabelText As New ArrayList  ' To store all the text data for languages
@@ -55,6 +58,7 @@ Public Class NotepadApp
     Private LabelNewFileNotice As String
     Private LabelNewFileNoticeTitle As String
     Private LabelAboutText As String
+    Private LabelNeverSaved As String
 
     Private Sub LoadLanguage(lang As String)
         Try
@@ -86,10 +90,10 @@ Public Class NotepadApp
         Me.Text = TitleText
     End Sub
 
-    Private Function SaveAs()
-        'A function is used when you need to return a value such as Sum(2 + 3) or need to call a piece of code more than once.
-        'In this case, our SaveAs code is a function because we not only need to call it under the 'Save As' option but also
-        'if the file has never been saved and the user chooses Save instead of Save As.
+    Private Sub SaveAs()
+        'A sub is used when you need to call a piece of code more than once. In this case, our SaveAs code is a sub 
+        'because we not only need to call it under the 'Save As' option but also if the file has never been saved
+        'and the user chooses Save instead of Save As.
 
         'Show the save window that was declared at the start of the program.
         Try
@@ -113,12 +117,14 @@ Public Class NotepadApp
                 SetTitleText()
                 'We need to toggle the FileHasBeenSaved variable to true since it's now been saved.
                 FileHasBeenSaved = True
+                'Update status bar.
+                FileLastSaved = Now().ToString("h:mmtt M/d/yyyy")
+                lblStatus.Text = LabelText(28) + ": " + FileLastSaved
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, LabelText(22))
         End Try
-        Return Nothing
-    End Function
+    End Sub
 
     Private Sub NotepadApp_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         'The load event is where anything we want to happen when the form is loaded goes. Variable setting and 
@@ -139,7 +145,7 @@ Public Class NotepadApp
         FileHasBeenSaved = False
 
         'Initialize language list
-        For i As Integer = 0 To 27
+        For i As Integer = 0 To 29
             LabelText.Add(i)
         Next
 
@@ -160,6 +166,10 @@ Public Class NotepadApp
         'Load default language data
         LoadDefaultLanguage()
         UpdateLanguage()
+
+        'Update status bar
+        FileLastSaved = LabelText(29)   'Default to "Never"
+        lblStatus.Text = LabelText(28) + ": " + FileLastSaved
     End Sub
 
     Private Sub NotepadApp_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
@@ -399,14 +409,14 @@ Public Class NotepadApp
         'Get the current date/time and insert it at the current selected point
         'txtNotepad.Text.Insert(txtNotepad.SelectionStart, (Now().ToString("hh:mm tt M/d/yyyy")))
 
-        Dim insertText = (Now().ToString("h:mmtt M/d/yyyy"))
+        Dim insertText = Now().ToString("h:mmtt M/d/yyyy")
         Dim insertPos As Integer = txtNotepad.SelectionStart
         txtNotepad.Text = txtNotepad.Text.Insert(insertPos, insertText)
         txtNotepad.SelectionStart = insertPos + insertText.Length
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AboutToolStripMenuItem.Click
-        MessageBox.Show(LabelText(27) + vbNewLine + vbNewLine + "https://www.github.com/ipavl/notepad-10k" + " (v1.7.2-20130731)", LabelText(21), MessageBoxButtons.OK, MessageBoxIcon.Information)
+        MessageBox.Show(LabelText(27) + vbNewLine + vbNewLine + "https://www.github.com/ipavl/notepad-10k" + " (" + AppVersion + ")", LabelText(21), MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
     Private Sub LanguageSelector_TextChanged(sender As Object, e As EventArgs) Handles LanguageSelector.TextChanged
@@ -455,6 +465,13 @@ Public Class NotepadApp
         LabelNewFileNotice = LabelText(25)
         LabelNewFileNoticeTitle = LabelText(26)
         LabelAboutText = LabelText(27)
+
+        'Status bar
+        If Not FileHasBeenSaved Then
+            FileLastSaved = LabelText(29)   ' Display never
+        End If
+
+        lblStatus.Text = LabelText(28) + ": " + FileLastSaved   ' Display save time
     End Sub
 
     Private Sub LoadDefaultLanguage()
@@ -498,5 +515,14 @@ Public Class NotepadApp
         LabelText(25) = "Do you really want to start a new document? Any unsaved changes will be lost!"
         LabelText(26) = "Create new document?"
         LabelText(27) = "Created by ipavl. The source code of this program is about 10KB without comments, or 21KB with them. It was originally created from August 6th-9th, 2011. Multiple languages support added July 30th, 2013."
+
+        'Status bar
+        LabelText(28) = "Last saved"
+        LabelText(29) = "Never"
+    End Sub
+
+    Private Sub txtNotepad_TextChanged(sender As Object, e As EventArgs) Handles txtNotepad.TextChanged
+        'Update document length indicator
+        lblLength.Text = txtNotepad.TextLength
     End Sub
 End Class
