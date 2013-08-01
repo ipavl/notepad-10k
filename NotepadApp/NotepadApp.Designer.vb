@@ -245,11 +245,14 @@ Partial Class NotepadApp
         '
         'txtNotepad
         '
+        Me.txtNotepad.AcceptsTab = True
+        Me.txtNotepad.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtNotepad.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtNotepad.Font = New System.Drawing.Font("Lucida Sans Unicode", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNotepad.Font = New System.Drawing.Font("Consolas", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNotepad.Location = New System.Drawing.Point(0, 24)
         Me.txtNotepad.Multiline = True
         Me.txtNotepad.Name = "txtNotepad"
+        Me.txtNotepad.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.txtNotepad.Size = New System.Drawing.Size(683, 362)
         Me.txtNotepad.TabIndex = 1
         '
