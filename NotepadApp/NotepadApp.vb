@@ -384,6 +384,10 @@ Public Class NotepadApp
             'We should also clear the textbox for them. We could also add options such as "New from Current" or "New from Clipboard"
             'if we wanted to, in which case we would not clear the textbox or replace the text with the clipboard text, respectively.
             txtNotepad.Text = Nothing
+
+            'Update status bar
+            FileLastSaved = LabelText(29)   'Default to "Never"
+            lblStatus.Text = LabelText(28) + ": " + FileLastSaved
         End If
     End Sub
 
